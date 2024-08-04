@@ -1,7 +1,7 @@
 import tkinter as tk
 import customtkinter
 
-global xboton
+global xbotonFuncionObjetivo
 global Y_botonAgregarRestriccion
 global numeroVariable
 global cantidadRestricciones
@@ -114,7 +114,6 @@ def estandarizar(entradasFuncionObjetivo,listaRestricciones):
     funcionObjetivo = customtkinter.CTkLabel(master=estandarizacion,text=funcionObjetivoTexto,font=('Bold',16))
     funcionObjetivo.place(x=x,y=y)
 
-    print(listaRestricciones[1][0][1].get())
     for restriccion in range(cantidadRestricciones):
         textoRestriccion = ''
         y = y + 35
@@ -127,12 +126,6 @@ def estandarizar(entradasFuncionObjetivo,listaRestricciones):
     
     botonAgregarRestriccion.configure(state="disabled")
     botonEstandarizar.configure(state="disabled")
-
-
-
-
-
-
 
 ventana = customtkinter.CTk()
 ventana.configure(fg_color='#FAFBF6')
@@ -178,7 +171,5 @@ agregar_entrada_variable_funcionObjetivo(125,5,entradasFuncionObjetivo)
 agregar_texto_variable_funcionObjetivo(60,5,1,variablesFuncionObjetivo)
 agregar_texto_variable_funcionObjetivo(125,5,2,variablesFuncionObjetivo)
 agregar_suma_funcionObjetivo(60,5,sumasFuncionObjetivo)
-
-
 
 ventana.mainloop()
