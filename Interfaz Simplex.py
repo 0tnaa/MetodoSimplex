@@ -9,6 +9,7 @@ xbotonFuncionObjetivo = 195
 numeroVariable = 2
 Y_botonAgregarRestriccion = 35
 cantidadRestricciones = 0
+modalidades = ['MAXIMIZAR', 'MINIMIZAR']
 
 def agregar_entrada_variable_funcionObjetivo(x,y,listaEntrada):
     nueva_barra_entrada = customtkinter.CTkEntry(master=funcionObjetivo,width=26,height=26)
@@ -160,6 +161,8 @@ botonAgregarRestriccion.place(x=15,y=Y_botonAgregarRestriccion)
 botonAgregarVariable= customtkinter.CTkButton(master=funcionObjetivo,width=10,height=4,border_spacing=0,fg_color='#63C74D',border_color='#63C74D',border_width=1.2,
 text_color='#FAFBF6',font=('Bold',22),text='+',command=lambda:agregar_variable_funcionObjetivo(xbotonFuncionObjetivo,5,numeroVariable,entradasFuncionObjetivo,variablesFuncionObjetivo,sumasFuncionObjetivo))
 botonAgregarVariable.place(x=xbotonFuncionObjetivo,y=5)
+modalidad = customtkinter.CTkComboBox(hoja, values=modalidades)
+modalidad.place(x=21,y=50)
 
 entradasFuncionObjetivo = []
 variablesFuncionObjetivo = []
