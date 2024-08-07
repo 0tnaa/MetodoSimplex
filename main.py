@@ -180,13 +180,20 @@ def metodo_simplex(entradasFuncionObjetivo, listaRestricciones):
         # Guardar la iteración
         tablas_iteracion.append(tabla.copy())
 
-    # Obtener resultados
     resultado = tabla[-1, -1]
-    variables = tabla[:-1, -1]
+    variables = np.zeros(n)
+
+    # Identificar variables básicas y no básicas
+    for i in range(n):
+        columna = tabla[:-1, i]
+        if np.count_nonzero(columna) == 1 and np.sum(columna) == 1:
+            fila = np.argmax(columna)
+            variables[i] = tabla[fila, -1]
 
     resultados.append(f"Valor Óptimo: {resultado:.2f}")
     for i in range(n):
-        resultados.append(f"X{i+1} = {variables[i]:.2f}")
+        if variables[i] != 0:
+            resultados.append(f"X{i+1} = {variables[i]:.2f}")
 
     mostrar_resultados(tablas_iteracion)
 
@@ -259,4 +266,4 @@ agregar_texto_variable_funcionObjetivo(60,5,1,variablesFuncionObjetivo)
 agregar_texto_variable_funcionObjetivo(125,5,2,variablesFuncionObjetivo)
 agregar_suma_funcionObjetivo(60,5,sumasFuncionObjetivo)
 
-ventana.mainloop()##
+ventana.mainloop()
